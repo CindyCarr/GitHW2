@@ -6,9 +6,10 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class configReader {
+
     static Properties prop;
 
-    public static Properties readProperties(String filePath){
+    public static Properties readProperties(String filePath) {
         try {
             FileInputStream fis = new FileInputStream(filePath);
             prop = new Properties();
@@ -21,8 +22,7 @@ public class configReader {
         return prop;
     }
 
-    public static String getPropertyValue(String key){
+    public static String getPropertyValue(String key) {
         return prop.getProperty(key);
     }
-
 }

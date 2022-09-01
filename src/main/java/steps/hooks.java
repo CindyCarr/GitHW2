@@ -6,16 +6,28 @@ import io.cucumber.java.Scenario;
 import utils.commonMethods;
 
 public class hooks extends commonMethods {
-
+    //import io.cucumber and not junit
 
     @Before
     public void start(){
         openBrowserAndLaunchApplication();
     }
 
-//    @After
-//    public void end(Scenario scenario){
-//
-//        closeBrowser();
-//    }
+    @After
+    public void end(Scenario scenario){
+
+        //scenario class from cucumber holds the complete information of the execution
+        byte[] pic;
+
+        if(scenario.isFailed()){
+            pic = takeScreenshot("failed/" + scenario.getName());
+        }else {
+            pic = takeScreenshot("passed/" + scenario.getName());
+        }
+
+        //it will attach the screenshot in report
+        scenario.attach(pic, "image/png", scenario.getName());
+
+        closeBrowser();
+    }
 }
