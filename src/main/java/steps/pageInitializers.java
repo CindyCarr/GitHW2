@@ -1,27 +1,22 @@
 package steps;
 
+
 import pages.AddEmployeePage;
 import pages.DashboardPage;
-import pages.EmployeeInformationPage;
-import pages.loginPage;
+import pages.LoginPage;
 
 public class pageInitializers {
-    public static loginPage login;
-    public static DashboardPage dash;
-    public static EmployeeInformationPage emp;
+
+    public static LoginPage login;
+
     public static AddEmployeePage addEmployeePage;
+
+    public static DashboardPage dash;
 
     public static void initializePageObjects() {
 
-        login = new loginPage();
-        dash = new DashboardPage();
-        emp = new EmployeeInformationPage();
+        login = new LoginPage();
         addEmployeePage = new AddEmployeePage();
+        dash=new DashboardPage();
     }
-
-
 }
-
-
-
-//where should we initalize the page intializers   (call method initalize page objects())
